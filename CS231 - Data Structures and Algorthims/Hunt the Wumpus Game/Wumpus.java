@@ -13,12 +13,15 @@ public class Wumpus extends Agent {
 	private Vertex location;
 	// boolean to store if the Wumpus is alive or dead
 	private boolean isAlive;
+	// boolean to store if the Wumpus has been killed by the hunter
+	private boolean killed;
 	
 	// constructor: creates a hunter with a given location
 	public Wumpus(Vertex v) {
 		super(v.getX(), v.getY());
 		this.location = v;
-		this.isAlive = false;
+		this.isAlive = true;
+		this.killed = false;
 	}
 	
 	// returns the Vertex location of the wumpus
@@ -28,16 +31,33 @@ public class Wumpus extends Agent {
 	
 	// overrides the draw method in the Agent class
 	public void draw(Graphics g, int scale) {
+		int x = this.getX();
+		int y = this.getY();
 		if(!this.isAlive) {
-			int x = this.getX();
-			int y = this.getY();
 			g.setColor(Color.RED);
 			g.fillOval(x*scale + (int) scale/4 - 2, y*scale + (int) scale/4 - 2, (int) scale/2, (int) scale/2);
+		}
+		if(this.killed) {
+			g.setColor(Color.RED);
+			g.drawLine(x*scale, y*scale,x*scale + scale - 5,y*scale + scale - 5);
+			g.drawLine(x*scale + scale - 5,y*scale, x*scale, y*scale + scale -5);
 		}
 	}
 	
 	// this method returns the life state (is alive (true) or dead (false)) of the wumpus
 	public boolean lifeState() {
-		return this.isAlive;
+		return !this.killed;
 	}
+	
+	// this method is called to make the wumpus dead
+	public void killed() {
+		this.killed = true;
+		this.isAlive = false;
+	}
+	
+	// this method makes the wumpus visible on the LandscapePanel
+	// this is a method used at the end of a game
+	public void makeVisible() {
+		this.isAlive = false;
+	}	
 }

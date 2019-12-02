@@ -16,6 +16,8 @@ import java.awt.Dimension;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.Point;
+import java.awt.Container;
+import java.awt.Toolkit;
 
 import javax.imageio.ImageIO;
 
@@ -57,7 +59,12 @@ public class InteractiveLandscapeDisplay {
     public enum Move { LEFT,RIGHT,UP,DOWN,WAIT }
     // holds the next movement
     private Move move;
-
+	// boolean to store if the hunter should be armed
+	private boolean isArmed;
+	// this field stores the current game state (win, lose, unknown)
+	private HuntTheWumpus.WinState s;
+	// this JPanel is the JLabel in the northern panel that shows the state of the game
+	private JLabel label;
     /**
      * Creates the main window
      * @param scape the Landscape that will hold the objects we display
@@ -71,6 +78,8 @@ public class InteractiveLandscapeDisplay {
         this.scale = 64; // determines the size of the grid
         this.scape = scape;
         this.move = Move.WAIT;
+		this.s = HuntTheWumpus.WinState.UNKNOWN;
+		this.isArmed = false;
         // This is test code that adds a few vertices. ----------------
         // You will need to update this to make a Graph first, then
         // add the vertices to the Landscape.
@@ -102,10 +111,12 @@ public class InteractiveLandscapeDisplay {
 		// this.scape.addForegroundAgent(w);
 		// end of test code -----------------------------------------
         
-        // Make the main window
+		// Pre-Menu to allow the code to know which version of the game to run
         this.win = new JFrame("Basic Interactive Display");
         win.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
-
+		
+		// Make the main window
+		
         // make the main drawing canvas (this is the usual
         // LandscapePanel we have been using). and put it in the window
         this.canvas = new LandscapePanel( this.scape.getWidth(),
@@ -119,11 +130,17 @@ public class InteractiveLandscapeDisplay {
         this.fieldY = new JLabel("Y");
         JButton quit = new JButton("Quit");
         JPanel panel = new JPanel( new FlowLayout(FlowLayout.RIGHT));
-        panel.add( this.fieldX );
+		JPanel p = new JPanel( new FlowLayout(FlowLayout.CENTER));
+		this.label = new JLabel("Game in progress");
+		p.add(this.label);
+		panel.add( this.fieldX );
         panel.add( this.fieldY );
         panel.add( quit );
-        this.win.add( panel, BorderLayout.SOUTH);
+		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         this.win.pack();
+		this.win.add( p, BorderLayout.NORTH);
+        this.win.add( panel, BorderLayout.SOUTH);
+		this.win.setLocation(d.width/2-this.win.getSize().width/2,d.height/2-this.win.getSize().height/2);
 
         // Add key and button controls.
         // We are binding the key control object to the entire window.
@@ -148,10 +165,8 @@ public class InteractiveLandscapeDisplay {
         MouseControl mc = new MouseControl();
         this.canvas.addMouseListener( mc );
         this.canvas.addMouseMotionListener( mc );
-
-        // The last thing to do is make it all visible.
-        this.win.setVisible( true );
-
+		
+		this.win.setVisible( true );
     }
 
     private class LandscapePanel extends JPanel {
@@ -164,7 +179,7 @@ public class InteractiveLandscapeDisplay {
         public LandscapePanel(int height, int width) {
             super();
             this.setPreferredSize( new Dimension( width, height ) );
-            this.setBackground(Color.white);
+			this.setBackground(Color.white);
         }
 
         /**
@@ -238,6 +253,10 @@ public class InteractiveLandscapeDisplay {
 			else if( ("" + e.getKeyChar()).equalsIgnoreCase("s") ) {
 				move = Move.DOWN;
 			}
+			// to arm the hunter
+			else if( ("" + e.getKeyChar()).equalsIgnoreCase(" ") ) {
+				isArmed = !isArmed;
+			}
         }
 
         public void actionPerformed(ActionEvent event) {
@@ -258,7 +277,12 @@ public class InteractiveLandscapeDisplay {
     public void rest() {
     	this.move = Move.WAIT;
     }
-
+	
+	// to get the isArmed value from other classes
+	public boolean getArmed() {
+		return this.isArmed;
+	}
+	
     public void repaint() {
     	this.win.repaint();
     }
@@ -271,7 +295,20 @@ public class InteractiveLandscapeDisplay {
 	public PlayState state() {
 		return this.state;
 	}
-
+	
+	public void updateWinState(HuntTheWumpus.WinState state) {
+		this.s = state;
+	}
+	
+	// this method prints win message if the argument boolean is true
+	public void winLoseMessage() {
+		if(s != HuntTheWumpus.WinState.UNKNOWN) {
+			if(s == HuntTheWumpus.WinState.WIN)
+				label.setText("You win");
+			if(s == HuntTheWumpus.WinState.LOSE)
+				label.setText("You lose");
+		}
+	}
 
     public static void main(String[] argv) throws InterruptedException {
         // InteractiveLandscapeDisplay w = new InteractiveLandscapeDisplay();

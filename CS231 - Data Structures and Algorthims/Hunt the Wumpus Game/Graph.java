@@ -67,6 +67,7 @@ public class Graph {
 		
 		for(int index = 0;index < this.size;index++) {
 			this.vertices[index].setCost(9999);
+			this.vertices[index].setMarked(false);
 			if(v0.equals(this.vertices[index])) {
 				exists = false;
 				this.vertices[index].setCost(0);

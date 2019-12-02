@@ -46,6 +46,8 @@ public class Hunter extends Agent {
 	public void move(Vertex v) {
 		this.location = v;
 		this.visible();
+		this.setX(v.getX());
+		this.setY(v.getY());
 	} 
 	
 	// overrides the draw method in the Agent class
@@ -53,6 +55,20 @@ public class Hunter extends Agent {
 		int x = this.getX();
 		int y = this.getY();
 		g.setColor(Color.BLUE);
-		g.fillOval(x*scale + (int) scale/4 - 2, y*scale + (int) scale/4 - 2, (int) scale/2, (int) scale/2);
+		g.fillOval(x*scale + (int) (scale/4) - 2, y*scale + (int) (scale/4) - 2, (int) (scale/2), (int) (scale/2));
+		if(this.fire) {
+			g.setColor(Color.BLACK);
+			g.drawArc(x*scale + (int) (0.35 * (scale - 5)), y*scale + (int) (0.15 * (scale - 5)), (int) (0.3 * (scale - 5)), (int) (0.7 * (scale - 5)),90,180);
+			g.drawLine(x*scale + (int) ((scale-5)/2), y*scale + (int) (0.15 * (scale-5)), x*scale + (int) ((scale-5)/2), y*scale + (int) (0.85 * (scale-5)));
+		}
+	}
+	
+	// toString that shows the current state of the hunter
+	public String toString() {
+		String returnString = "(" + this.getX() + "," + this.getY() + ")\t";
+		returnString += "N: " + this.location.getNeighbors().size() + " "; 
+		returnString += "D: " + this.location.cost() + " ";
+		returnString += "F: " + this.fire;
+		return returnString;
 	}
 }

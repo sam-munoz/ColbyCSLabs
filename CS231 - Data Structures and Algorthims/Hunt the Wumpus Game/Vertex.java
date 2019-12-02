@@ -55,6 +55,7 @@ public class Vertex extends Agent {
 		this.marked = false;
 		this.isVisible = false;
 		this.comparable = new CompareVertex();
+		this.distance = 10;
 	}
 
 	// this method will return the opposite direction of the argument direction
@@ -173,4 +174,17 @@ public class Vertex extends Agent {
 	public int compareTo(Vertex other) {
 		return this.comparable.compare(this,other);
 	}
+
+	// this converts a number into a Direction as follows 
+	public static Direction convertInt(int num) {
+		if(num == 0)
+			return Direction.NORTH;
+		else if(num == 1)
+			return Direction.SOUTH;
+		else if(num == 2)
+			return Direction.EAST;
+		else if(num == 3)
+			return Direction.WEST;
+		return null;
+	} 
 }
