@@ -200,6 +200,8 @@ public class HuntTheWumpus {
 	public void findPath(int x0, int y0, int xf, int yf) {
 		// System.out.println("Entered findPath");
 		// System.out.println("x0: " + x0 + "\ny0: " + y0 + "\nxf: " + xf + "\nyf: " + yf);
+		
+		// holds coordinate pair and gets vertex at that vertex at that position if it exists; othewise, the method creates a new vertex
 		int x = x0;
 		int y = y0;
 		Vertex old = this.grid[this.convert(x,y)];
@@ -209,6 +211,8 @@ public class HuntTheWumpus {
 		this.grid[this.convert(x,y)] = old;
 		this.graph.add(old);
 		this.scape.addBackgroundAgent(old);
+		
+		// compares if the coordinate pairs to find what direction the path need to travel to reach its destination
 		Vertex.Direction d1, d2;
 		if(x < xf)
 			d1 = Vertex.Direction.EAST;
@@ -218,7 +222,11 @@ public class HuntTheWumpus {
 			d2 = Vertex.Direction.SOUTH;
 		else
 			d2 = Vertex.Direction.NORTH;
+		
+		// while loop runs until the path has reached its final destination
 		while(x != xf || y != yf) {
+			// x and y hold the coordinates of the current vertex
+			// stores the vertex into the old vertex if it exists, otherwise create a new vertex
 			old = this.grid[this.convert(x,y)];
 			if(old == null) {
 				this.grid[this.convert(x,y)] = new Vertex(x,y);
@@ -226,6 +234,7 @@ public class HuntTheWumpus {
 				this.graph.add(old);
 			}
 			// System.out.println("old: " + old);
+			// random chooses a direction to travel if the path can travel that direction as long as it path remains the part of the shortest path
 			Vertex.Direction dir = null;
 			boolean change = false;
 			int rand = (int) (Math.random() * 2);
@@ -238,7 +247,7 @@ public class HuntTheWumpus {
 				dir = d1;
 				change = true;
 			}
-			// movemnet on the y-axis
+			// movement on the y-axis
 			else if((y < this.height-1 || y > 0) && rand == 1 && y != yf) {
 				if(d2 == Vertex.Direction.SOUTH)
 					y++;
@@ -247,6 +256,8 @@ public class HuntTheWumpus {
 				dir = d2;
 				change = true;
 			}
+			
+			// if the coordinate pair (x,y) changed from the pair stored in old vertex variable, then create a new vertex at the new location
 			if(change) {
 				Vertex newV = this.grid[this.convert(x,y)];
 				if(newV == null) {
@@ -273,17 +284,21 @@ public class HuntTheWumpus {
 	
 	
 	public static void main(String[] args) throws InterruptedException {
+		// this setting variables I am going to use to random values; these intitial values are not important 
 		int s = 0;
 		int w = 4;
 		int h = 4;
+		// if the there are more than two command line arguments in place, then run the if statement
 		if(args.length > 2)	{
 			s = Integer.parseInt(args[2]);
 			w = Integer.parseInt(args[0]);
 			h = Integer.parseInt(args[1]);
 		}
+		// checks if the s variable, which holds which version of the game to run, is valid number (either 1 or 2) 
 		if(HuntTheWumpus.checkSelection(s)) {
 			HuntTheWumpus game = new HuntTheWumpus(w, h, 64, s);
 			while (game.display.state() == InteractiveLandscapeDisplay.PlayState.PLAY) {
+				// if statement is here to stop the program from collecting keyboard input when the is finished
 				if(game.state == WinState.UNKNOWN)
 					game.input();
 				game.display.winLoseMessage();
@@ -295,6 +310,7 @@ public class HuntTheWumpus {
 			game.display.dispose();
 			System.exit(0);
 		}
+		// this run if command line argument do not meet the conditions needed to run the game
 		System.out.println("Requires these arguments: <width of grid (integer)> <height of grid (integer)> <version to run: 1 is base project, 2 includes the extension (integer)>");
 	}
 }
