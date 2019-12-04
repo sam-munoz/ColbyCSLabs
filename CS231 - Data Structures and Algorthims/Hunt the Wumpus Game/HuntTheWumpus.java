@@ -154,6 +154,7 @@ public class HuntTheWumpus {
 		this.display.rest();
 	}
 	
+	// this method runs when the hunter fires an arrow: collects input from the keyboard and fires an arrow in the direction pressed and shows if the user kills the wumpus or the wumpus kills the hunter
 	public void shootArrow() {
 		InteractiveLandscapeDisplay.Move m = this.display.currentState();
 		Vertex moveTo = null;
@@ -183,7 +184,7 @@ public class HuntTheWumpus {
 		// this.display.rest();
 	}
 	
-	// this method sets up the end game display for the game
+	// this method display the entire graph once the game is over
 	public void endGame() {
 		for(int index = 0;index < this.graph.vertexCount();index++) {
 			if(this.graph.get(index).getNeighbors().size() > 0)
