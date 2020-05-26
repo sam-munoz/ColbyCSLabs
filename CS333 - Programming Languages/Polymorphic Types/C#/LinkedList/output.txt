@@ -1,0 +1,41 @@
+------------------ Int List -----------------------
+Linked List: 5, 4, 3, 2, 1
+Size: 5
+
+Pop: 5
+Remove: 2
+
+Modified Linked List: 4, 3, 1
+Size: 3
+
+Mapped
+Modified Linked List: 4, 3, 1
+Size: 3
+
+
+Cleared
+
+Modified Linked List: Empty
+Size: 0
+---------------------------------------------------
+
+------------------ Char List ----------------------
+Linked List: e, d, c, b, a, f, g, h, i, j
+Size: 10
+
+Pop: e
+Remove: b
+
+Modified Linked List: d, c, a, f, g, h, i, j
+Size: 8
+
+Mapped
+Modified Linked List: d, c, a, f, g, h, i, j
+Size: 8
+
+
+Cleared
+
+Modified Linked List: Empty
+Size: 0
+----------------------------------------------------

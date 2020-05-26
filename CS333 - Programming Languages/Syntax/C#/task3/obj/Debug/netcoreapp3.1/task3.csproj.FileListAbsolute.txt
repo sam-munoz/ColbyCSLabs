@@ -1,0 +1,11 @@
+\\filer\Personal\smunoz23\Projects\Project 3\C#\task3\bin\Debug\netcoreapp3.1\task3.exe
+\\filer\Personal\smunoz23\Projects\Project 3\C#\task3\bin\Debug\netcoreapp3.1\task3.deps.json
+\\filer\Personal\smunoz23\Projects\Project 3\C#\task3\bin\Debug\netcoreapp3.1\task3.runtimeconfig.json
+\\filer\Personal\smunoz23\Projects\Project 3\C#\task3\bin\Debug\netcoreapp3.1\task3.runtimeconfig.dev.json
+\\filer\Personal\smunoz23\Projects\Project 3\C#\task3\bin\Debug\netcoreapp3.1\task3.dll
+\\filer\Personal\smunoz23\Projects\Project 3\C#\task3\bin\Debug\netcoreapp3.1\task3.pdb
+\\filer\Personal\smunoz23\Projects\Project 3\C#\task3\obj\Debug\netcoreapp3.1\task3.csprojAssemblyReference.cache
+\\filer\Personal\smunoz23\Projects\Project 3\C#\task3\obj\Debug\netcoreapp3.1\task3.AssemblyInfoInputs.cache
+\\filer\Personal\smunoz23\Projects\Project 3\C#\task3\obj\Debug\netcoreapp3.1\task3.AssemblyInfo.cs
+\\filer\Personal\smunoz23\Projects\Project 3\C#\task3\obj\Debug\netcoreapp3.1\task3.dll
+\\filer\Personal\smunoz23\Projects\Project 3\C#\task3\obj\Debug\netcoreapp3.1\task3.pdb

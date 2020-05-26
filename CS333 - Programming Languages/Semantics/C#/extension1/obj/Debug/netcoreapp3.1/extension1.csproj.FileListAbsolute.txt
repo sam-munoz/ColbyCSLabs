@@ -1,0 +1,11 @@
+\\filer\Personal\smunoz23\Projects\Project 4\C#\extension1\bin\Debug\netcoreapp3.1\extension1.exe
+\\filer\Personal\smunoz23\Projects\Project 4\C#\extension1\bin\Debug\netcoreapp3.1\extension1.deps.json
+\\filer\Personal\smunoz23\Projects\Project 4\C#\extension1\bin\Debug\netcoreapp3.1\extension1.runtimeconfig.json
+\\filer\Personal\smunoz23\Projects\Project 4\C#\extension1\bin\Debug\netcoreapp3.1\extension1.runtimeconfig.dev.json
+\\filer\Personal\smunoz23\Projects\Project 4\C#\extension1\bin\Debug\netcoreapp3.1\extension1.dll
+\\filer\Personal\smunoz23\Projects\Project 4\C#\extension1\bin\Debug\netcoreapp3.1\extension1.pdb
+\\filer\Personal\smunoz23\Projects\Project 4\C#\extension1\obj\Debug\netcoreapp3.1\extension1.csprojAssemblyReference.cache
+\\filer\Personal\smunoz23\Projects\Project 4\C#\extension1\obj\Debug\netcoreapp3.1\extension1.AssemblyInfoInputs.cache
+\\filer\Personal\smunoz23\Projects\Project 4\C#\extension1\obj\Debug\netcoreapp3.1\extension1.AssemblyInfo.cs
+\\filer\Personal\smunoz23\Projects\Project 4\C#\extension1\obj\Debug\netcoreapp3.1\extension1.dll
+\\filer\Personal\smunoz23\Projects\Project 4\C#\extension1\obj\Debug\netcoreapp3.1\extension1.pdb

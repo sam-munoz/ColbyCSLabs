@@ -1,0 +1,14 @@
+if command ran is: "./task2 1":
+	Hello world!
+	Hello world!
+	Hello world!
+	Hello world!
+	Hello world!
+	Interrupted! (2)
+
+if command ran is: "./task2 2":
+	3
+	Invalid operation. Don't do that. Just DON'T!
+
+if command ran is: "./task2 3":
+	Invalid access to memory. DON'T TRY TO MESS WITH ME!
