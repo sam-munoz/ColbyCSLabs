@@ -9,3 +9,5 @@ I took this course in my 1st semester as a freshman. This course is focused on i
 
 CS333:
 I took this course in my 2nd semester as a freshman. This couse is focused on understanding the basic design of a programming language and comparing different language families. The course is split into the different aspects of a programming languages. Each aspect/topic is assigned a project. Some of the topics covered in the course are syntax, semantics, memory management.
+
+NEEDS TO BE UPDATED
