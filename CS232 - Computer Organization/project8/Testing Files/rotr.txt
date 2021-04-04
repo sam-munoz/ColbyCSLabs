@@ -1,0 +1,4 @@
+start:
+movei 15 rc
+rotr rc rd
+halt

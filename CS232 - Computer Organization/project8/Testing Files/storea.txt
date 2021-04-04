@@ -1,0 +1,6 @@
+start:
+movei 32 ra
+movei 1 re
+storea ra 200
+load rb 201
+halt

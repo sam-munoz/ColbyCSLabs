@@ -1,0 +1,17 @@
+start:
+bra label3
+
+label1:
+movei 1 ra
+bra end
+
+label2:
+movei 2 rb
+bra end
+
+label3:
+movei 3 rc
+bra end
+
+end:
+halt

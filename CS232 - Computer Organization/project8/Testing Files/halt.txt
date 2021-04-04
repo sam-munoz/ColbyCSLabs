@@ -1,0 +1,5 @@
+start:
+movei 1 ra
+movei 2 rb
+movei 3 rc
+halt

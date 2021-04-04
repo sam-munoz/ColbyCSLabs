@@ -1,0 +1,24 @@
+# define all constants for program
+start:
+movei 0 ra # first term of sequence
+movei 1 rb # second term of sequence
+movei 0 rc # sum of last two element in the sequence
+movei 1 rd # buffer for moving elements from ra -> rb and rb -> rc; also stores 1 to subtract re's value
+movei 9 re # loop counter
+oport ra # display first term of sequence
+oport rb # display second term of sequence
+
+# define loop for program
+loop:
+add ra rb rc 
+oport rc
+move rb rd
+move rc rb
+move rd ra
+movei 1 rd
+sub re rd re
+braz breakout
+bra loop
+
+breakout:
+halt

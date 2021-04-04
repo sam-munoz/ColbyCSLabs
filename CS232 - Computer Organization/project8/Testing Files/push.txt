@@ -1,0 +1,4 @@
+start:
+movei 9 rb
+push rb
+halt

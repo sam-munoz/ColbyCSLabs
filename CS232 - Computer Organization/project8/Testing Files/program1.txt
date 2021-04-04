@@ -1,0 +1,16 @@
+# start function
+start:
+movei -1 ra
+movei 2 rb
+add ra rb rc
+
+breakout:
+halt
+braz label2
+
+label1:
+load 12 ra
+bra breakout
+
+label2:
+halt

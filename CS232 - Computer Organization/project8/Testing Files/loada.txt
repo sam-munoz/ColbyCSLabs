@@ -1,0 +1,8 @@
+start:
+movei 1 re
+movei 10 ra
+movei 20 rb
+push ra
+push rb
+loada rc 0
+halt

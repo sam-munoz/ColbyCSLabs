@@ -1,0 +1,4 @@
+start:
+movei 62 ra
+move ra rb
+halt

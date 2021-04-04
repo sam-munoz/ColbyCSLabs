@@ -1,0 +1,6 @@
+start:
+movei 11 ra
+push ra
+load rc 0
+pop rd
+halt

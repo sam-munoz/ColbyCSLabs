@@ -1,0 +1,3 @@
+start:
+movei 32 rb
+halt

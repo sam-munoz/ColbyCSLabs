@@ -1,0 +1,5 @@
+start:
+movei 1 ra
+movei 0 rb
+xor ra rb rc
+halt

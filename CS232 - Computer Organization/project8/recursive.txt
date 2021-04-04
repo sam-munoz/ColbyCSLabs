@@ -1,0 +1,21 @@
+# defining needed variables
+start:
+movei 1 ra # input
+movei 0 rb # output
+movei 1 rd # constant
+iport re # number N
+
+body:
+call recurse
+sub re rd re
+braz end
+bra body
+
+recurse:
+add ra rb rb
+add ra rd ra
+return
+
+end:
+oport rb
+halt

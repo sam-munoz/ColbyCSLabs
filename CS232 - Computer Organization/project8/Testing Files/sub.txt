@@ -1,0 +1,4 @@
+start:
+movei 7 rb
+sub sp rb rb
+halt

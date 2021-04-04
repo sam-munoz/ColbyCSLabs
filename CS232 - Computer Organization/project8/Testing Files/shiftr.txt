@@ -1,0 +1,4 @@
+start:
+movei 17 ra
+shiftr ra re
+halt

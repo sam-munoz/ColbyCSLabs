@@ -1,0 +1,5 @@
+start:
+movei 1 rd
+movei 1 re
+and rd re sp
+halt

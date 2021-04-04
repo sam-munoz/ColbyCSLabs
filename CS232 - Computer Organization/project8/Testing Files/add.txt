@@ -1,0 +1,5 @@
+start:
+movei 8 ra
+movei 8 rb
+add ra rb rc
+halt

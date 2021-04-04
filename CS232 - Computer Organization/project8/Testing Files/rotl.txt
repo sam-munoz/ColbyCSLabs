@@ -1,0 +1,4 @@
+start:
+movei 254 ra
+rotl ra ra
+halt

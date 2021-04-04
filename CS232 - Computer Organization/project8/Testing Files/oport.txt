@@ -1,0 +1,4 @@
+start:
+movei 12 re
+oport re
+halt

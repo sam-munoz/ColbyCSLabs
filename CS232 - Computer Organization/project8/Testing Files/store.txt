@@ -1,0 +1,5 @@
+start:
+movei 34 rd
+store rd 3
+load ra 3
+halt

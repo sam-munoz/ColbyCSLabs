@@ -1,0 +1,17 @@
+start:
+call f1
+
+f3:
+movei 3 ra
+bra end
+
+f2:
+movei 2 ra
+bra end
+
+f1:
+movei 1 ra
+bra end
+
+end:
+halt

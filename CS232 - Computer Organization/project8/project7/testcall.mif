@@ -1,0 +1,32 @@
+-- program memory file for testcall.a
+DEPTH = 256;
+WIDTH = 16;
+ADDRESS_RADIX = HEX;
+DATA_RADIX = BIN;
+CONTENT
+BEGIN
+00 : 1111100000011000; -- move 3 into RA 
+01 : 1111100000100001; -- move 4 into RB
+02 : 0100000000000000; -- push RA into stack 
+03 : 0100000000000000; -- push RA into stack again
+04 : 0100001000000000; -- push RB into stack
+05 : 0011010000001011; -- call function; jump to line 11 
+06 : 0101010000000000; -- pop from stack; store in RC
+07 : 0101010000000000; -- pop from stack; store in RC 
+08 : 0101010000000000; -- pop from stack; store in RC
+09 : 0110010000000000; -- make output port equal RC
+0A : 0011110000000000; -- exit from program
+0B : 0100100000000000; -- push RE into stack
+0C : 1111010100000100; -- store the value of the stack pointer into RE
+0D : 0100000000000000; -- push RA into stack
+0E : 0100001000000000; -- push RB into stack
+0F : 0000100011111101; -- (unsigned) load from RAM at address (253 + RE) and store it into RA
+10 : 0000100111111100; -- load from RAM at address (252 + RE) and store it into RB 
+11 : 1000000001000000; -- RA <= RA + RB 
+12 : 0001100011111011; -- store RAM at address (251 + RE) the value of RA 
+13 : 0101001000000000; -- pop from stack; store value into RB
+14 : 0101000000000000; -- pop from stack; store value into RA
+15 : 0101100000000000; -- pop from stack; store value into RE
+16 : 0011100000000000; -- return to the where the call instruction line + 1
+[17..FF] : 1111111111111111;
+END

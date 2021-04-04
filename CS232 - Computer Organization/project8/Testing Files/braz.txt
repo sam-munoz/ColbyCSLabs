@@ -1,0 +1,20 @@
+start:
+movei 0 ra
+movei 0 rb
+add ra rb ra
+braz label2
+
+label1:
+movei 1 ra
+bra end
+
+label2:
+movei 2 rb
+bra end
+
+label3:
+movei 3 rc
+bra end
+
+end:
+halt
