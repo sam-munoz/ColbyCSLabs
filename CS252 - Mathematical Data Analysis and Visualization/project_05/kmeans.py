@@ -575,7 +575,8 @@ class KMeans():
         # print(distances)
         
         # return average all distances
-        distances = distances / (distances.size - 1)
+        if distances.size >= 2:
+            distances = distances / (distances.size - 1)
         return np.sum(distances) 
         
     def min_average_distance(self, pt_index):
@@ -643,6 +644,36 @@ class KMeans():
             
         # return average
         return score / self.num_samps
+    
+    def plot_silhouette_score(self, max_k):
+        ''' Plots the average silhouette score across all data points when k = 2, 3, ..., max_k
+        
+        Parameters:
+        -----------
+        max_k: maximum k-means cluster to run
+        '''
+        # create variable to store average silhouette scores
+        avg = np.array([])
+        
+        # for loop to run k-means cluster and then compute silhouette score after each k
+        for i in range(2, max_k+1):
+            # run k-means cluster
+            self.cluster(i, init_method="kmeans++")
+            
+            # compute average silhouette score for current data
+            score = self.average_silhouette_score()
+            
+            # add result to list
+            avg = np.append(avg, score)
+            
+        # get x-axis data
+        x = np.arange(2, max_k+1)
+        
+        # plot results
+        plt.plot(x, avg, "k-")
+        plt.xlabel("k clusters")
+        plt.ylabel("silhouette score")
+        
 ################# SOURCES #######################
 # https://thispointer.com/numpy-amin-find-minimum-value-in-numpy-array-and-its-index/
 # https://stackoverflow.com/questions/60551227/how-to-check-if-a-python-object-is-a-numpy-ndarray
