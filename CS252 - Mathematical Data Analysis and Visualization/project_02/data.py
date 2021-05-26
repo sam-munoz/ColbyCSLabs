@@ -139,7 +139,7 @@ class Data:
                 # check if this row contains real data types. if not, then print error message and terminate program
                 if DATA_TYPES.count(dt_data) == 0:
                     print(f'ERROR: \"{dt_data}\" is not a real data type. Please make sure your data type row contains real data types.')
-                    return
+                    sys.exit(1)
                     
                 # check if data_type is a numeric type
                 if not dt_data == "numeric":
@@ -183,7 +183,10 @@ class Data:
         '''
         # typing in the first line
         rtn_string = "----------------------------------------------\n"
-        rtn_string += self.filepath
+        if not self.filepath == None:
+            rtn_string += self.filepath
+        else:
+            rtn_string += "--No/ge filename--"
         rtn_string += " ("
         rtn_string += str(self.data.shape[0])
         rtn_string += "x"
@@ -362,7 +365,7 @@ class Data:
             print(f"ERROR: start_row index {start_row} does not exist in the data set. Please enter a valid index number.")
             return
             
-        if end_row < 0 or end_row >= len(self.data):
+        if end_row < 0 or end_row > len(self.data):
             print(f"ERROR: end_row index {end_row} does not exist in the data set. Please enter a valid index number.")
             return
         

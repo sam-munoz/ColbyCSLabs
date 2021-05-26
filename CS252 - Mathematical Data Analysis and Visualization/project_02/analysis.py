@@ -330,26 +330,34 @@ class Analysis:
 #                 print("row: ", row_index, "col: ", col_index)
                 
                 # get x- and y-list
-                x = np.squeeze(self.data.select_data([data_vars[row_index]]))
-                y = np.squeeze(self.data.select_data([data_vars[col_index]]))
+                x = np.squeeze(self.data.select_data([data_vars[col_index]]))
+                y = np.squeeze(self.data.select_data([data_vars[row_index]]))
                 
                 # create subplot for an axes
                 axes[row_index, col_index] = plt.subplot(len(data_vars), len(data_vars), (row_index)*len(data_vars) + col_index+1)
                 
-                # removes xticks and yticks
-                # uncomment 
-                # axes[row_index, col_index].set_xticks([])
-                # axes[row_index, col_index].set_yticks([])
+                # removes xticks if not plot in bottom row
+                if not row_index == len(data_vars)-1: 
+                    axes[row_index, col_index].set_xticks([])
+                    
+                # if the plot is in the bottom row, then do not plot xlabel
+                else: 
+                    plt.xlabel(data_vars[col_index])
+                    
+                # if plot is not in the first column of data, do not plot ylabel                       
+                if not col_index == 0: 
+                    axes[row_index, col_index].set_yticks([])
+                    
+                # if the plot is in the bottom row, then plot ylabel
+                else: 
+                    plt.ylabel(data_vars[row_index])
+                    
 
                 # plot data
                 plt.plot(x, y, ".")
                 
-                # add xlabel and ylabel
-                plt.xlabel(data_vars[row_index])
-                plt.ylabel(data_vars[col_index])
-                
         # adjust spacing between subplots
-        fig.subplots_adjust(wspace=0.6, hspace=0.6)
+        # fig.subplots_adjust(wspace=0.6, hspace=0.6)
 
         # return figure and plots
         return fig, axes
