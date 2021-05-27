@@ -1,5 +1,7 @@
 This README file is intented to outline what each project is about. The projects below are listed in chronological order these projects were presented in class.
 
+---
+
 **Project 1: Blackjack**  
 This project is about developing a simple version of Blackjack. The purpose of this project is to help students become familiar with Java. For this implementation of Blackjack, objects are created for a card, a hand, and a single game of Blackjack. The main structure used to store data are ArrayLists. I constructed two versions of this game. The first, `Two-Player Game of Blackjack`, is a version of Blackjack with only two players. The second version, `Multiplayer Game of Blackjack`, is a version of Blackjack with one dealer and $N$ number of other players such that $N \ge 0$.
 
