@@ -11,6 +11,6 @@ I took this course in my spring semester as a freshman. This couse is focused on
 I took this course in my fall semester as a sophomore. This course is focused on learning about the core hardware componenets such as the memory storage, input and output, and the CPU. I learn how these components work starting from learning from a basic electrical component level and builds up to learning about machine code and finally to assembly code. 
 
 ### CS252 - Mathematical Data Analysis and Visualization
-I took this course in my spring semester as a sophomore. This course is focused on learning about fundamental machine learning concepts, data management, basic statistical analysis, and data mining techniques. For the projects in this class, I learn different techniques for visualizing my data that help me find patterns in data sets. There is an emphasis on learning the mathematical basis of the algoritms used in this course. Some algoritms require calculus and linear algebra to compute. I am currently taking this course. As a result, this part of the repository is not complete.
+I took this course in my spring semester as a sophomore. This course is focused on learning about fundamental machine learning concepts, data management, basic statistical analysis, and data mining techniques. For the projects in this class, I learn different techniques for visualizing my data that help me find patterns in data sets. There is an emphasis on learning the mathematical basis of the algoritms used in this course. Some algoritms require calculus and linear algebra to compute. I am currently taking this course.
 
-Last Updated: 04-26-2021
+Last Updated: 07-24-2021
